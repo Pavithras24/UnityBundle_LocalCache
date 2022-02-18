@@ -1,6 +1,6 @@
 applications :
-	- name: "app-name"
-	  path : "dist/app-name"
+	- name: "UnityWeb-StarterApp"
+	  path : "dist/UnityWeb-StarterApp"
 	  memory : 256M
 	  buildpack :
 	  - "https://github.com/cloudfoundry/staticfile-buildpack.git"
