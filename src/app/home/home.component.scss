@@ -1,0 +1,138 @@
+
+body {
+ background-color: white;
+}
+
+.landing-page__banner {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    background-color: black;
+  }
+
+.Header {
+    background-color: black;
+    color: white;
+    padding: 4rem 3rem;
+}
+.main {
+  background-color: #e5e5e5;
+  height: 100vh;
+}
+
+.unityBtn {
+    // margin-left: 1rem;
+    margin-top: 1rem;
+}
+.bx--toggle-input__label {
+    width: 3rem;
+}
+
+.unityModal {
+    .bx--modal-container {
+      height: 869px;
+      width: 1000px;
+    }
+    .modalContent {
+        // height: 500px;
+         width: 1000px;
+    }
+    .bx--modal-content {
+      margin-bottom: 0rem;
+  }
+  .bx--modal-header {
+    padding: 0rem;
+    margin-bottom: 0rem;
+  }
+  .bx--modal-content--overflow-indicator {
+    position: relative;
+  }   
+  .bx--modal-footer {
+    margin-top: -4rem;
+  }
+  .bx--modal-footer .bx--btn {
+    max-width: 17rem;
+  }
+}   
+
+.bx--grid--full-width {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  // removes excess padding for nested full width grids
+  .bx--grid--full-width .bx--grid--full-width {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  // removes extraneous row margins in the full width grid
+  .bx--grid--full-width .bx--row {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .row {
+    display: flex;
+    // background-color: #e5e5e5;
+  }
+  
+  .first-column {
+    color: black;
+    flex: 20%;
+    font-family: 'IBMPlexSans-Medium';
+    margin-left: 80px;
+    margin-top: 88px;
+  }
+
+  .second-column {
+    flex: 80%;
+    color: black;
+    margin-top: 60px; 
+  }
+  .CarbonIntro {
+    font-family: 'IBMPlexSans';
+    margin-top: 10px;
+    font-size: 16px;
+  }
+  .first {
+    color: black;
+    flex: 20%;
+    font-family: 'IBMPlexSans-Medium';
+    margin-left: 80px;
+    margin-top: 26px;
+  }
+  .text-container {
+    background-color: white;
+    padding: 2rem;
+    margin-right: 57px;
+    height: 350px;
+  }
+  
+  .Heading {
+    font-size: 20px;
+    font-family: 'IBMPlexSans-Medium';
+  }
+  .embedView {
+    flex: 40%;
+    color: black;
+    margin-top: 26px;
+  }
+  .Messageview {
+    flex: 40%;
+    color: black;
+    margin-top: 26px;
+  }
+  .angularImage {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 1rem;
+  }
+  .intro-text-container {
+    background-color: white;
+    padding: 2rem;
+    margin-right: 57px;
+  }
+  .content {
+    font-family: 'IBMPlexSans';
+    margin-top: 10px;
+    font-size: 1rem;
+    height: 6.5rem;
+  }

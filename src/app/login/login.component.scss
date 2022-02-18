@@ -1,0 +1,47 @@
+// .bx--modal-content--overflow-indicator {
+//     bottom: 0;
+// }
+
+.loginHeading {
+    font-size: 1.5rem;
+}
+
+.headerLabel {
+    font-size: 1.2rem;
+    text-align: center;
+    color: #FDFDFD;
+}
+
+.headerSubLabel {
+    font-size: 0.75rem;
+}
+
+.logo {
+    // text-align: center;
+    display: block;
+    margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1rem;
+    // width: 40px;
+    height:30px;
+}
+
+.loginModal {
+    .bx--modal.is-visible {
+        background-image:  url(/assets/BGImage.png);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+    .bx--modal-container {
+        // background-color: black;
+        height:fit-content;
+        width: 25rem;
+    }
+    .bx--modal-content {
+        margin-bottom: 2rem;
+    }
+    .bx--modal-content--overflow-indicator {
+        bottom: 0;
+    }
+}

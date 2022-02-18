@@ -1,0 +1,24 @@
+<ibm-modal open="true" size = "xs" hasScrollingContent="false" class="loginModal">
+	<div class="bx--modal-header">
+		<img class="logo" src="/assets/logo.png" alt="logo">
+		<h2 ibmmodalheaderlabel="" class="bx--modal-header__label headerLabel">App Name</h2>
+	</div>
+	<section ibmModalContent hasForm="true">
+		<!-- <div class="notification-container"></div> -->
+		<!-- <div class="bx--text-input__field-wrapper"> -->
+			<!-- <ibm-label
+		invalidText="username is required"
+		[invalid]="checkUsername()">  -->
+			<!-- <ibm-label>
+				username
+				<input ibmText placeholder="Enter Username" [autocomplete]="false"  required>
+			</ibm-label> -->
+		<!-- </div> -->
+	</section>
+	<ibm-modal-footer>
+		<button class="bx--btn bx--btn--primary" 
+			size="normal" (click)="navigateToHome()">Login
+			<svg class="bx--btn__icon" ibmIcon="arrow--right" size="16"></svg>
+		</button>
+	</ibm-modal-footer>
+</ibm-modal>

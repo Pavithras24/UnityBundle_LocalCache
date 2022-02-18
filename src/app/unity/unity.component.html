@@ -1,0 +1,21 @@
+<div id="unity-container" class="unity-desktop">
+  <canvas id="unity-canvas"></canvas>
+  <div id="unity-loading-bar">
+    <div id="unity-logo"></div>
+    <div id="unity-progress-bar-empty">
+      <div id="unity-progress-bar-full"></div>
+    </div>
+  </div>
+  <div id="unity-footer">
+    <div id="unity-fullscreen-button"></div>
+  </div>
+</div>
+
+<ibm-modal [open]="showModal" hasScrollingContent="false" class="MessageModal">
+  <ibm-modal-header (closeSelect)="closeModal()">
+  </ibm-modal-header>
+  <section ibmModalContent hasForm="true">
+    <p class="unityMessage">Message from Unity</p>
+    <p class="message">{{messageFromUnity}}</p>
+  </section>
+</ibm-modal>

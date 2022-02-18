@@ -1,0 +1,67 @@
+<h1 class="Header">Unity - Angular Starter App</h1>
+<div class="main">
+  <div class="row">
+    <div class="first-column">
+      <p class="Heading">Getting started</p>
+    </div>
+    <div class="second-column">
+      <div class="intro-text-container">
+        <p class="Heading">Integration of Unity and Angular</p>
+        <p class="CarbonIntro">{{carbonIntro}}</p>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="first">
+      <p class="Heading">Featured Items</p>
+    </div>
+    <div class="embedView">
+      <div class="text-container">
+        <img class="angularImage" src="../../assets/unity-logo.png" />
+        <p class="Heading">Embedded View</p>
+        <p class="content">{{embedViewContent}}</p>
+        <div class="unityBtn">
+          <button id="primaryBtn" class="bx--btn bx--btn--primary" size="xm" (click)="navigateToUnity()">Embedded View
+            <svg class="bx--btn__icon" ibmIcon="view" size="20"></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="Messageview">
+      <div class="text-container">
+        <img class="angularImage" src="../../assets/angular_solidBlack.png" />
+        <p class="Heading">Message Exchange</p>
+        <p class="content">{{messageExchange}}</p>
+        <div class="unityBtn">
+          <button id="primaryBtn" class="bx--btn bx--btn--primary" size="xm"
+            (click)="openMesssageExchangeModal()">Message Exchange
+            <svg class="bx--btn__icon" ibmIcon="view" size="20"></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<ibm-modal [open]="showModal || showMessageExchange" hasScrollingContent="false" class="unityModal">
+  <ibm-modal-header (closeSelect)="closeUnityModal()">
+  </ibm-modal-header>
+  <section ibmModalContent hasForm="true">
+    <app-unity *ngIf="showModal || showMessageExchange" (unityInstance)="getunityInstance($event)"></app-unity>
+  </section>
+  <ibm-modal-footer *ngIf="showMessageExchange">
+    <button class="bx--btn bx--btn--primary" size="normal" (click)="changeRotation($event.checked)">Change Direction of
+      Rotation</button>
+  </ibm-modal-footer>
+</ibm-modal>
+
+
+
+<!-- <ibm-toggle
+        [label]=""
+        offText="AntiClockwise"
+        onText="Clockwise"
+        size = "md"
+        checked = false
+        (change)="changeRotation($event.checked)"
+        > 
+    </ibm-toggle> -->
