@@ -1,0 +1,20 @@
+ManifestFileVersion: 0
+CRC: 3815519178
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: cse_2ddata
+      Dependencies: {}
+    Info_1:
+      Name: mapgame
+      Dependencies: {}
+    Info_2:
+      Name: 2ddata
+      Dependencies: {}
+    Info_3:
+      Name: simulation
+      Dependencies:
+        Dependency_0: mapgame
+    Info_4:
+      Name: trainingscene
+      Dependencies: {}
