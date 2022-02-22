@@ -25,9 +25,9 @@
             ],
             "styles": [
               "src/styles.scss",
-              "src/assets/MF_gameView_localcache/TemplateData/style.css"
+              "src/assets/AssetBundle2d/TemplateData/style.css"
             ],
-            "scripts": ["src/assets/MF_gameView_localcache/Build/MF_gameView_localcache.loader.js"]
+            "scripts": ["src/assets/AssetBundle2d/Build/AssetBundle2d.loader.js"]
           },
           "configurations": {
             "production": {

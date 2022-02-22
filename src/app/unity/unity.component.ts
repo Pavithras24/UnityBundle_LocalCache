@@ -9,6 +9,7 @@ import { Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation } fro
 export class UnityComponent implements OnInit {
  showModal:  boolean 
  messageFromUnity: string
+ gameInstance: any = null
 //  @Input() sendMessageTapped: boolean
  @Output() unityInstance =  new EventEmitter<any>()
 
@@ -19,31 +20,32 @@ export class UnityComponent implements OnInit {
   }
 
   loadUnityScene() {
-    // var buildUrl = "assets/web_unityBuild/Build";
-    // var loaderUrl = buildUrl + "/web_unityBuild.loader.js";
-    // var config = {
-    //   dataUrl: buildUrl + "/web_unityBuild.data.unityweb",
-    //   frameworkUrl: buildUrl + "/web_unityBuild.framework.js.unityweb",
-    //   codeUrl: buildUrl + "/web_unityBuild.wasm.unityweb",
-    //   streamingAssetsUrl: "StreamingAssets",
-    //   companyName: "DefaultCompany",
-    //   productName: "E&U_2DviewSample1",
-    //   productVersion: "0.1",
-    //   devicePixelRatio: 0
-    // };
-
-    var buildUrl = "assets/MF_gameView_localcache/Build";
-    var loaderUrl = buildUrl + "/MF_gameView_localcache.loader.js";
+    var scriptUrl = "https://cdn.jsdelivr.net/npm/@microsoft/signalr@3.1.10/dist/browser/signalr.min.js"
+    var buildUrl = "assets/AssetBundle2d/Build";
+    var loaderUrl = buildUrl + "/AssetBundle2d.loader.js";
     var config = {
-      dataUrl: buildUrl + "/MF_gameView_localcache.data.unityweb",
-      frameworkUrl: buildUrl + "/MF_gameView_localcache.framework.js.unityweb",
-      codeUrl: buildUrl + "/MF_gameView_localcache.wasm.unityweb",
-      streamingAssetsUrl: "assets/MF_gameView_localcache/StreamingAssets",
+      dataUrl: buildUrl + "/AssetBundle2d.data.unityweb",
+      frameworkUrl: buildUrl + "/AssetBundle2d.framework.js.unityweb",
+      codeUrl: buildUrl + "/AssetBundle2d.wasm.unityweb",
+      streamingAssetsUrl: "assets/AssetBundle2d/StreamingAssets",
       companyName: "DefaultCompany",
       productName: "E&U_2DviewSample1",
       productVersion: "0.1",
       devicePixelRatio: 0
     };
+
+    // var buildUrl = "assets/MF_gameView_localcache/Build";
+    // var loaderUrl = buildUrl + "/MF_gameView_localcache.loader.js";
+    // var config = {
+    //   dataUrl: buildUrl + "/MF_gameView_localcache.data.unityweb",
+    //   frameworkUrl: buildUrl + "/MF_gameView_localcache.framework.js.unityweb",
+    //   codeUrl: buildUrl + "/MF_gameView_localcache.wasm.unityweb",
+    //   streamingAssetsUrl: "assets/MF_gameView_localcache/StreamingAssets",
+    //   companyName: "DefaultCompany",
+    //   productName: "E&U_2DviewSample1",
+    //   productVersion: "0.1",
+    //   devicePixelRatio: 0
+    // };
 
     let container = document.querySelector("#unity-container") || new Element();
     var canvas: HTMLElement = document.querySelector("#unity-canvas") || new HTMLElement();
@@ -60,12 +62,16 @@ export class UnityComponent implements OnInit {
     }
     loadingBar.style.display = "block";
     var script = document.createElement("script");
+    var unityscript = document.createElement("script");
+    unityscript.src = scriptUrl;
     script.id = "unity"
     script.src = loaderUrl;
     script.onload = () => {
       createUnityInstance(canvas, config, (progress) => {
         progressBarFull.style.width = 100 * progress + "%";
       }).then((unityInstance) => {
+        this.gameInstance = unityInstance;
+        this.unitySceneSelection();
         this.unityInstance.emit(unityInstance)
         loadingBar.style.display = "none";
         fullscreenButton.onclick = () => {
@@ -82,6 +88,9 @@ export class UnityComponent implements OnInit {
     }; 
     
     document.body.appendChild(script);
+    document.body.appendChild(unityscript);
+    
+
     // var data = (<any>window).messageFromUnity
         // console.log("message from untiy ", + messageFromUnity)
   
@@ -90,6 +99,10 @@ export class UnityComponent implements OnInit {
       this.messageFromUnity = message
       // console.log("message from unity: " + message);
     }
+  }
+
+  unitySceneSelection() {
+     this.gameInstance.SendMessage('Decider', 'deciderMethodForWeb', 'SimulationScene');
   }
 
   checkBrowser(): string { 
