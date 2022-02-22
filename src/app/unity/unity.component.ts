@@ -10,6 +10,7 @@ export class UnityComponent implements OnInit {
  showModal:  boolean 
  messageFromUnity: string
  gameInstance: any = null
+ @Input() selectedScene: string
 //  @Input() sendMessageTapped: boolean
  @Output() unityInstance =  new EventEmitter<any>()
 
@@ -102,7 +103,21 @@ export class UnityComponent implements OnInit {
   }
 
   unitySceneSelection() {
-     this.gameInstance.SendMessage('Decider', 'deciderMethodForWeb', 'SimulationScene');
+    console.log("selected scene " +this.selectedScene);
+    switch(this.selectedScene) {
+      case '2dView':
+      this.gameInstance.SendMessage('Decider', 'deciderMethodForWeb', '2DData');
+      break;
+      case 'cse2dView':
+      this.gameInstance.SendMessage('Decider', 'deciderMethodForWeb', 'CSE_2DData');
+      break;
+      case '3dview':
+      this.gameInstance.SendMessage('Decider', 'deciderMethodForWeb', 'GameScene');
+      break;
+      default:
+      this.gameInstance.SendMessage('Decider', 'deciderMethodForWeb', 'SimulationScene');
+      break;
+    }
   }
 
   checkBrowser(): string { 

@@ -21,7 +21,15 @@
         <p class="Heading">Embedded View</p>
         <p class="content">{{embedViewContent}}</p>
         <div class="unityBtn">
-          <button id="primaryBtn" class="bx--btn bx--btn--primary" size="xm" (click)="navigateToUnity()">Embedded View
+          <!-- <button id="primaryBtn" class="bx--btn bx--btn--primary" size="xm" (click)="navigateToUnity()">Embedded View
+            <svg class="bx--btn__icon" ibmIcon="view" size="20"></svg>
+          </button> -->
+          <button id="primaryBtn" class="bx--btn bx--btn--primary" size="xm" (click)="navigateToUnity('2dView')">2d View
+            <svg class="bx--btn__icon" ibmIcon="view" size="20"></svg>
+          </button>
+          </div>
+          <div class="unityBtn">
+          <button id="primaryBtn" class="bx--btn bx--btn--primary" size="xm" (click)="navigateToUnity('cse2dView')">CSE 2dView
             <svg class="bx--btn__icon" ibmIcon="view" size="20"></svg>
           </button>
         </div>
@@ -33,11 +41,21 @@
         <p class="Heading">Message Exchange</p>
         <p class="content">{{messageExchange}}</p>
         <div class="unityBtn">
-          <button id="primaryBtn" class="bx--btn bx--btn--primary" size="xm"
+          <!-- <button id="primaryBtn" class="bx--btn bx--btn--primary" size="xm"
             (click)="openMesssageExchangeModal()">Message Exchange
+            <svg class="bx--btn__icon" ibmIcon="view" size="20"></svg>
+          </button> -->
+          <button id="primaryBtn" class="bx--btn bx--btn--primary" size="xm"
+            (click)="navigateToUnity('3dview')">3d View
             <svg class="bx--btn__icon" ibmIcon="view" size="20"></svg>
           </button>
         </div>
+        <div class="unityBtn">
+        <button id="primaryBtn" class="bx--btn bx--btn--primary" size="xm"
+        (click)="navigateToUnity('simulationView')">Simulation View
+        <svg class="bx--btn__icon" ibmIcon="view" size="20"></svg>
+      </button>
+    </div>
       </div>
     </div>
   </div>
@@ -46,7 +64,7 @@
   <ibm-modal-header (closeSelect)="closeUnityModal()">
   </ibm-modal-header>
   <section ibmModalContent hasForm="true">
-    <app-unity *ngIf="showModal || showMessageExchange" (unityInstance)="getunityInstance($event)"></app-unity>
+    <app-unity *ngIf="showModal || showMessageExchange" [selectedScene] = "selectionScene" (unityInstance)="getunityInstance($event)"></app-unity>
   </section>
   <ibm-modal-footer *ngIf="showMessageExchange">
     <button class="bx--btn bx--btn--primary" size="normal" (click)="changeRotation($event.checked)">Change Direction of
